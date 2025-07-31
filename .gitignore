@@ -38,6 +38,7 @@ yarn-error.log*
 
 CLAUDE.md
 .claude/
+PRD.md
 
 # typescript
 *.tsbuildinfo
