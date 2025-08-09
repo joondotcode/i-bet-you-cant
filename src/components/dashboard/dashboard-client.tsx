@@ -9,6 +9,8 @@ import { ChallengeHistory } from '@/components/dashboard/challenge-history'
 import { DailyCheckIn } from '@/components/dashboard/daily-checkin'
 import { useChallengeStore, useCurrentChallenge, useChallenges, useChallengeLoading, useChallengeError } from '@/lib/stores/challenge-store'
 import Link from 'next/link'
+import { TaskForm } from '@/components/tasks/task-form'
+import { TaskList } from '@/components/tasks/task-list'
 
 interface DashboardClientProps {
   user: any
@@ -136,6 +138,10 @@ export function DashboardClient({ user, profile }: DashboardClientProps) {
             completedAt: c.updated_at,
             earnings: c.status === 'completed' ? c.stake_amount : 0
           }))} />
+
+          {/* Tasks */}
+          <TaskForm />
+          <TaskList />
         </div>
 
         {/* Sidebar */}
