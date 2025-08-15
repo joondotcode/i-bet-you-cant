@@ -1,0 +1,147 @@
+{
+  "Common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "continue": "Continue",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "submit": "Submit",
+    "retry": "Retry"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "faq": "FAQ",
+    "dashboard": "Dashboard",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "profile": "Profile",
+    "settings": "Settings",
+    "languageSwitch": "Switch Language"
+  },
+  "HomePage": {
+    "title": "I Bet You Can't - Psychology-Powered Habit Building",
+    "subtitle": "The only habit app that puts your money where your mouth is.",
+    "description": "Stake $15, complete every day, or lose it all. {successRate}% success rate using loss aversion psychology.",
+    "cta": "Start Your Challenge",
+    "howItWorks": "How It Works",
+    "testimonials": "Success Stories"
+  },
+  "Auth": {
+    "loginTitle": "Welcome Back",
+    "loginSubtitle": "Sign in to continue your habit journey",
+    "signupTitle": "Start Building Habits",
+    "signupSubtitle": "Join thousands who've transformed their lives",
+    "email": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signInWithGoogle": "Sign in with Google",
+    "signUpWithGoogle": "Sign up with Google",
+    "or": "or",
+    "terms": "By signing up, you agree to our {termsLink} and {privacyLink}",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "Challenge": {
+    "createTitle": "Create Your Challenge",
+    "createSubtitle": "Turn your goals into reality with financial stakes",
+    "habitTitle": "What habit do you want to build?",
+    "habitPlaceholder": "e.g., Exercise for 30 minutes, Read for 20 minutes, Meditate",
+    "habitDescription": "Be specific about what you'll do each day",
+    "durationTitle": "How long will you commit?",
+    "durationOptions": {
+      "7": "{count, plural, =1 {1 week} other {# weeks}}",
+      "14": "{count, plural, =1 {2 weeks} other {# weeks}}",
+      "21": "{count, plural, =1 {3 weeks} other {# weeks}}",
+      "30": "{count, plural, =1 {1 month} other {# months}}"
+    },
+    "stakeTitle": "How much will you stake?",
+    "stakeSubtitle": "Put your money where your commitment is. Higher stakes = stronger motivation.",
+    "stakeOptions": {
+      "15": {
+        "label": "$15",
+        "subtitle": "Standard stake",
+        "motivation": "Good motivation",
+        "completionRate": "72% completion rate"
+      },
+      "25": {
+        "label": "$25", 
+        "subtitle": "Higher stakes",
+        "motivation": "Strong motivation",
+        "completionRate": "84% completion rate",
+        "popular": "Popular"
+      },
+      "50": {
+        "label": "$50",
+        "subtitle": "Serious commitment", 
+        "motivation": "Maximum motivation",
+        "completionRate": "91% completion rate"
+      }
+    },
+    "whyStakesWork": "Why stakes work",
+    "stakesExplanation": "Loss aversion is powerful. People are 2x more motivated to avoid losing money than gaining it. Your stake creates real consequences that keep you committed when motivation fades.",
+    "moneyBackGuarantee": "100% Money-Back Guarantee",
+    "guaranteeText": "Complete all {days, plural, =1 {1 day} other {# days}} and get your full {amount, number, currency} back. We hold your money in secure escrow - you either succeed and get it back, or lose it for missing a day.",
+    "reviewTitle": "Review Your Challenge",
+    "summaryText": "You're committing to \"{title}\" for {duration, plural, =1 {1 day} other {# days}}, staking {amount, number, currency}.",
+    "startChallenge": "Start Challenge",
+    "paymentProcessing": "Processing payment..."
+  },
+  "Dashboard": {
+    "welcome": "Welcome back, {name}!",
+    "activeChallenge": "Active Challenge",
+    "completedDays": "{completed} of {total} days completed",
+    "daysRemaining": "{count, plural, =0 {Challenge complete!} =1 {1 day remaining} other {# days remaining}}",
+    "checkInToday": "Check in for today",
+    "checkInSuccess": "Great job! You've completed today's habit.",
+    "missedDay": "You missed a day. Challenge failed.",
+    "challengeComplete": "Challenge completed successfully!",
+    "refundProcessed": "Your {amount, number, currency} refund has been processed.",
+    "createNewChallenge": "Create New Challenge",
+    "challengeHistory": "Challenge History",
+    "stats": {
+      "totalChallenges": "Total Challenges",
+      "successRate": "Success Rate", 
+      "totalSaved": "Total Saved",
+      "currentStreak": "Current Streak"
+    }
+  },
+  "Errors": {
+    "invalidEmail": "Please enter a valid email address",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "passwordMismatch": "Passwords do not match",
+    "loginFailed": "Invalid email or password",
+    "signupFailed": "Failed to create account. Please try again.",
+    "paymentFailed": "Payment failed. Please check your card details.",
+    "networkError": "Network error. Please check your connection.",
+    "genericError": "Something went wrong. Please try again.",
+    "habitRequired": "Please enter a habit description",
+    "stakeRequired": "Please select a stake amount",
+    "challengeCreateFailed": "Failed to create challenge. Please try again."
+  },
+  "Time": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "daysAgo": "{count, plural, =1 {1 day ago} other {# days ago}}",
+    "hoursAgo": "{count, plural, =1 {1 hour ago} other {# hours ago}}",
+    "minutesAgo": "{count, plural, =1 {1 minute ago} other {# minutes ago}}",
+    "justNow": "Just now"
+  }
+}

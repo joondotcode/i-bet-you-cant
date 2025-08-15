@@ -1,8 +1,8 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function updateSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({
+export async function updateSession(request: NextRequest, response?: NextResponse) {
+  let supabaseResponse = response || NextResponse.next({
     request,
   })
 
@@ -40,6 +40,13 @@ export async function updateSession(request: NextRequest) {
   // Handle auth redirects
   const url = request.nextUrl.clone()
   const pathname = url.pathname
+  
+  // Extract locale-agnostic pathname (remove /en or /ko prefix)
+  const pathSegments = pathname.split('/').filter(Boolean)
+  const locales = ['en', 'ko']
+  const isLocaleRoute = locales.includes(pathSegments[0])
+  const basePathname = isLocaleRoute ? `/${pathSegments.slice(1).join('/')}` : pathname
+  const locale = isLocaleRoute ? pathSegments[0] : 'en'
 
   try {
     // refreshing the auth token and getting user
@@ -51,27 +58,27 @@ export async function updateSession(request: NextRequest) {
     }
     
     // Handle OAuth codes that land on home page (redirect to proper callback)
-    if (pathname === '/' && url.searchParams.get('code')) {
+    if (basePathname === '/' && url.searchParams.get('code')) {
       console.log('OAuth code detected on home page, redirecting to callback:', url.searchParams.get('code'))
-      const redirectTo = url.searchParams.get('redirectTo') || '/dashboard'
-      url.pathname = '/auth/callback'
+      const redirectTo = url.searchParams.get('redirectTo') || `/${locale}/dashboard`
+      url.pathname = `/${locale}/auth/callback`
       url.searchParams.set('redirectTo', redirectTo)
       return NextResponse.redirect(url)
     }
 
     // Protected routes that require authentication
-    if (pathname.startsWith('/dashboard')) {
+    if (basePathname.startsWith('/dashboard')) {
       if (!user) {
-        url.pathname = '/auth/login'
+        url.pathname = `/${locale}/auth/login`
         url.searchParams.set('redirectTo', pathname)
         return NextResponse.redirect(url)
       }
     }
 
     // Guest routes that redirect if already authenticated
-    if (pathname.startsWith('/auth/') && pathname !== '/auth/callback' && pathname !== '/auth/error') {
+    if (basePathname.startsWith('/auth/') && basePathname !== '/auth/callback' && basePathname !== '/auth/error') {
       if (user) {
-        const redirectTo = url.searchParams.get('redirectTo') || '/dashboard'
+        const redirectTo = url.searchParams.get('redirectTo') || `/${locale}/dashboard`
         url.pathname = redirectTo
         url.search = ''
         return NextResponse.redirect(url)
@@ -79,8 +86,8 @@ export async function updateSession(request: NextRequest) {
     }
 
     // Redirect authenticated users from home page to dashboard
-    if (pathname === '/' && user) {
-      url.pathname = '/dashboard'
+    if (basePathname === '/' && user) {
+      url.pathname = `/${locale}/dashboard`
       return NextResponse.redirect(url)
     }
 

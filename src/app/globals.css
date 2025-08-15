@@ -1,80 +1,176 @@
 @import "tailwindcss";
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 3.9%;
-  --primary: 0 0% 9%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 0 0% 96.1%;
-  --secondary-foreground: 0 0% 9%;
-  --muted: 0 0% 96.1%;
-  --muted-foreground: 0 0% 45.1%;
-  --accent: 0 0% 96.1%;
-  --accent-foreground: 0 0% 9%;
+  /* AMY'S DEEP SPACE DESIGN SYSTEM */
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 5% 6%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 355 7% 97%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 89.8%;
-  --input: 0 0% 89.8%;
-  --ring: 0 0% 3.9%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 142 86% 28%;
   --radius: 0.75rem;
+
+  /* AMY'S NEON ACCENT COLORS */
+  --neon-green: 142 86% 28%;
+  --neon-green-soft: 142 76% 36%;
+  --neon-blue: 217 91% 60%;
+  --neon-purple: 271 91% 65%;
+  --glass-bg: 240 3.7% 15.9% / 0.8;
+  --glass-border: 0 0% 100% / 0.1;
 }
+
+/* Tailwind custom colors */
+.text-neon-green { color: hsl(var(--neon-green)); }
+.text-neon-blue { color: hsl(var(--neon-blue)); }
+.bg-neon-green { background-color: hsl(var(--neon-green)); }
+.bg-neon-blue { background-color: hsl(var(--neon-blue)); }
+.border-neon-green { border-color: hsl(var(--neon-green)); }
+.border-neon-blue { border-color: hsl(var(--neon-blue)); }
 
 .dark {
-  --background: 0 0% 3.9%;
+  /* DARK MODE IS THE ONLY MODE */
+  --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
-  --card: 0 0% 3.9%;
+  --card: 240 10% 3.9%;
   --card-foreground: 0 0% 98%;
-  --popover: 0 0% 3.9%;
+  --popover: 240 5% 6%;
   --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 0 0% 9%;
-  --secondary: 0 0% 14.9%;
+  --primary: 142 76% 36%;
+  --primary-foreground: 355 7% 97%;
+  --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 0 0% 14.9%;
-  --muted-foreground: 0 0% 63.9%;
-  --accent: 0 0% 14.9%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
   --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
+  --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 14.9%;
-  --input: 0 0% 14.9%;
-  --ring: 0 0% 83.1%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 142 86% 28%;
 }
 
-/* Premium gradient backgrounds */
-.gradient-bg {
-  background: linear-gradient(135deg, 
-    hsl(var(--background)) 0%, 
-    hsl(var(--muted)) 25%, 
-    hsl(var(--background)) 50%, 
-    hsl(var(--accent)) 75%, 
-    hsl(var(--background)) 100%);
+/* AMY'S DEEP SPACE GRADIENTS */
+.amy-gradient-bg {
+  background: linear-gradient(
+    135deg, 
+    hsl(240 10% 3.9%) 0%,
+    hsl(240 8% 6%) 25%,
+    hsl(240 6% 4.5%) 50%,
+    hsl(240 12% 5%) 75%,
+    hsl(240 10% 3.9%) 100%
+  );
 }
 
-.gradient-bg-dark {
-  background: linear-gradient(135deg, 
-    hsl(0 0% 3.9%) 0%, 
-    hsl(240 3.7% 15.9%) 25%, 
-    hsl(0 0% 3.9%) 50%, 
-    hsl(240 5.9% 10%) 75%, 
-    hsl(0 0% 3.9%) 100%);
+.amy-radial-glow {
+  background: 
+    radial-gradient(
+      circle at 25% 25%, 
+      hsl(var(--neon-green) / 0.1) 0%, 
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%, 
+      hsl(var(--neon-blue) / 0.08) 0%, 
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      hsl(240 10% 3.9%) 0%,
+      hsl(240 8% 5%) 100%
+    );
 }
 
-/* Glassmorphism effects */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+/* AMY'S PREMIUM GLASSMORPHISM */
+.amy-glass {
+  background: hsla(var(--glass-bg));
+  backdrop-filter: blur(24px) saturate(120%);
+  border: 1px solid hsla(var(--glass-border));
+  box-shadow: 
+    0 8px 32px hsla(0 0% 0% / 0.3),
+    inset 0 1px 0 hsla(0 0% 100% / 0.1);
 }
 
-.glass-dark {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.amy-glass-neon {
+  background: hsla(var(--glass-bg));
+  backdrop-filter: blur(24px) saturate(120%);
+  border: 1px solid hsl(var(--neon-green) / 0.3);
+  box-shadow: 
+    0 8px 32px hsla(0 0% 0% / 0.4),
+    0 0 24px hsl(var(--neon-green) / 0.1),
+    inset 0 1px 0 hsla(0 0% 100% / 0.1);
+}
+
+.amy-glass-hover {
+  background: hsla(var(--glass-bg));
+  backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid hsl(var(--neon-green) / 0.5);
+  box-shadow: 
+    0 12px 40px hsla(0 0% 0% / 0.5),
+    0 0 32px hsl(var(--neon-green) / 0.2),
+    inset 0 1px 0 hsla(0 0% 100% / 0.15);
+  transform: translateY(-2px);
+}
+
+/* AMY'S EMERGENCY OVERRIDE CLASSES */
+.amy-duration-card {
+  background: linear-gradient(
+    135deg,
+    hsla(240 10% 8% / 0.9) 0%,
+    hsla(240 8% 12% / 0.85) 100%
+  );
+  backdrop-filter: blur(24px) saturate(120%);
+  border: 1px solid hsla(240 3.7% 25% / 0.4);
+  box-shadow: 
+    0 8px 32px hsla(0 0% 0% / 0.4),
+    inset 0 1px 0 hsla(0 0% 100% / 0.05),
+    inset 0 0 20px hsla(var(--neon-green) / 0.03);
+}
+
+.amy-duration-card-selected {
+  background: linear-gradient(
+    135deg,
+    hsla(240 10% 8% / 0.95) 0%,
+    hsla(var(--neon-green) / 0.15) 50%,
+    hsla(240 8% 12% / 0.9) 100%
+  );
+  backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid hsl(var(--neon-green) / 0.6);
+  box-shadow: 
+    0 12px 40px hsla(0 0% 0% / 0.6),
+    0 0 32px hsl(var(--neon-green) / 0.3),
+    inset 0 1px 0 hsla(0 0% 100% / 0.1),
+    inset 0 0 30px hsla(var(--neon-green) / 0.1);
+}
+
+.amy-duration-card-hover {
+  background: linear-gradient(
+    135deg,
+    hsla(240 10% 10% / 0.92) 0%,
+    hsla(var(--neon-green) / 0.08) 50%,
+    hsla(240 8% 14% / 0.88) 100%
+  );
+  backdrop-filter: blur(24px) saturate(130%);
+  border: 1px solid hsl(var(--neon-green) / 0.4);
+  box-shadow: 
+    0 10px 36px hsla(0 0% 0% / 0.5),
+    0 0 28px hsl(var(--neon-green) / 0.15),
+    inset 0 1px 0 hsla(0 0% 100% / 0.08),
+    inset 0 0 25px hsla(var(--neon-green) / 0.05);
+  transform: translateY(-4px) scale(1.02);
 }
 
 body {
@@ -83,10 +179,176 @@ body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Background pattern */
-.bg-grid-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
-  background-size: 20px 20px;
+/* AMY'S BACKGROUND PATTERNS */
+.amy-grid-pattern {
+  background-image: 
+    radial-gradient(circle at 1px 1px, hsl(var(--neon-green) / 0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.amy-dot-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, hsl(var(--neon-green) / 0.05) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, hsl(var(--neon-blue) / 0.03) 1px, transparent 1px);
+  background-size: 60px 60px, 40px 40px;
+}
+
+/* AMY'S INTERACTIVE STATES */
+.amy-interactive {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.amy-interactive:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.amy-interactive:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* AMY'S CHUNKY PROGRESS BAR */
+.amy-progress-container {
+  background: hsl(240 5% 6%);
+  border: 2px solid hsl(240 3.7% 15.9%);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.amy-progress-bar {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--neon-green)) 0%,
+    hsl(var(--neon-green-soft)) 100%
+  );
+  box-shadow: 
+    0 0 20px hsl(var(--neon-green) / 0.5),
+    inset 0 1px 0 hsl(0 0% 100% / 0.2);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* AMY'S CLEAN PROGRESS - NO DISTRACTING ANIMATIONS */
+.amy-progress-smooth {
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.amy-progress-smooth::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(0 0% 100% / 0.1) 50%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* REFINED STATUS INDICATOR - SUBTLE RING GLOW */
+.amy-status-glow {
+  position: relative;
+  overflow: visible;
+}
+
+.amy-status-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(
+    circle at center,
+    hsl(var(--neon-green) / 0.3) 0%,
+    hsl(var(--neon-green) / 0.1) 40%,
+    transparent 70%
+  );
+  border-radius: inherit;
+  animation: subtle-ring-glow 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes subtle-ring-glow {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* CONTEXT TAGLINE STYLING */
+.amy-context-tagline {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  letter-spacing: 0.025em;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.amy-context-tagline:hover {
+  opacity: 1;
+}
+
+/* INFO TOOLTIP STYLING */
+.amy-info-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: hsl(var(--muted) / 0.6);
+  color: hsl(var(--muted-foreground));
+  font-size: 10px;
+  font-weight: 600;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.amy-info-tooltip:hover {
+  background: hsl(var(--neon-green) / 0.2);
+  color: hsl(var(--neon-green));
+  transform: scale(1.1);
+}
+
+.amy-info-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-8px);
+}
+
+.amy-info-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  padding: 8px 12px;
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 50;
+  box-shadow: 0 4px 16px hsl(0 0% 0% / 0.2);
+  max-width: 200px;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
 }
 
 /* Accessibility Improvements */
@@ -116,10 +378,37 @@ body {
   }
 }
 
-/* Focus styles for better keyboard navigation */
+/* AMY'S NUCLEAR FOCUS STATE OVERRIDE */
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 *:focus-visible {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* RESPONSIVE BREAKPOINTS FOR CONTEXT TAGLINE */
+@media (max-width: 1024px) {
+  .amy-context-tagline {
+    display: none;
+  }
+}
+
+/* Custom focus styles for form inputs */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+}
+
+/* AMY'S BULLETPROOF INPUT FOCUS */
+.amy-focus-input:focus {
+  outline: none !important;
+  border-color: hsl(var(--neon-green)) !important;
+  box-shadow: 0 8px 32px hsl(var(--neon-green) / 0.1) !important;
+  background-color: hsl(var(--background) / 0.8) !important;
 }
 
 /* Ensure interactive elements are large enough */

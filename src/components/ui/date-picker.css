@@ -1,0 +1,278 @@
+/* AMY'S PERFECT GLASSMORPHISM DATE PICKER STYLES */
+
+/* Override React Day Picker CSS Variables */
+.custom-day-picker {
+  --rdp-accent-color: rgb(34, 197, 94);
+  --rdp-accent-background-color: rgba(34, 197, 94, 0.1);
+  --rdp-day-height: 48px;
+  --rdp-day-width: 48px;
+  --rdp-day_button-height: 44px;
+  --rdp-day_button-width: 44px;
+  --rdp-day_button-border-radius: 12px;
+  --rdp-today-color: rgb(34, 197, 94);
+  --rdp-nav_button-height: 40px;
+  --rdp-nav_button-width: 40px;
+  --rdp-animation_duration: 0.2s;
+  --rdp-animation_timing: ease;
+  --rdp-background-color: transparent;
+}
+
+/* ROOT CONTAINER - ELEGANT AND SPACIOUS */
+.custom-day-picker .rdp-root {
+  margin: 0;
+  font-family: inherit;
+  width: 100%;
+  background: transparent;
+}
+
+/* MONTHS CONTAINER - FULL WIDTH */
+.custom-day-picker .rdp-months {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}
+
+.custom-day-picker .rdp-month {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+}
+
+/* MONTH GRID - PROPER SPACING */
+.custom-day-picker .rdp-month_grid {
+  margin: 0 auto;
+  width: 100%;
+  border-spacing: 6px;
+  table-layout: fixed;
+}
+
+/* TABLE - FULL WIDTH WITH PROPER CONSTRAINTS */
+.custom-day-picker .rdp-table {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* ROZ-APPROVED CALENDAR HEADER WITH ROOM FOR LABELS */
+.custom-day-picker .rdp-month_caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.custom-day-picker .rdp-caption_label {
+  color: rgb(255, 255, 255) !important;
+  font-size: 1.375rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.025em !important;
+  text-align: center !important;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.05)) !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid rgba(34, 197, 94, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  min-width: 200px !important;
+}
+
+/* ROZ-APPROVED BIG OBVIOUS NAVIGATION BUTTONS */
+.custom-day-picker .rdp-nav {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  pointer-events: none !important;
+}
+
+.custom-day-picker .rdp-button_previous,
+.custom-day-picker .rdp-button_next {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 16px !important;
+  border: 2px solid rgba(34, 197, 94, 0.6) !important;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.1)) !important;
+  color: rgb(34, 197, 94) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3) !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* MAKE ARROWS BIGGER AND MORE VISIBLE */
+.custom-day-picker .rdp-chevron {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+}
+
+.custom-day-picker .rdp-button_previous:hover:not(:disabled),
+.custom-day-picker .rdp-button_next:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(59, 130, 246, 0.15)) !important;
+  border-color: rgba(34, 197, 94, 0.8) !important;
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.4) !important;
+  /* NO TRANSFORM - Roz doesn't like moving buttons! */
+}
+
+/* ADD VISIBLE LABELS FOR ROZ */
+.custom-day-picker .rdp-button_previous::after {
+  content: "PREV" !important;
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: rgba(34, 197, 94, 0.8) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.custom-day-picker .rdp-button_next::after {
+  content: "NEXT" !important;
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: rgba(34, 197, 94, 0.8) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.custom-day-picker .rdp-button_previous:disabled,
+.custom-day-picker .rdp-button_next:disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.custom-day-picker .rdp-chevron {
+  width: 16px !important;
+  height: 16px !important;
+  fill: currentColor !important;
+}
+
+/* ELEGANT WEEKDAY HEADERS */
+.custom-day-picker .rdp-weekday {
+  color: rgb(156, 163, 175) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  padding: 1rem 0 0.75rem 0 !important;
+  text-align: center !important;
+}
+
+/* BEAUTIFUL GLASSMORPHISM DAY CELLS */
+.custom-day-picker .rdp-day {
+  padding: 3px !important;
+  text-align: center !important;
+}
+
+.custom-day-picker .rdp-day_button {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: rgb(255, 255, 255) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  backdrop-filter: blur(4px) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.custom-day-picker .rdp-day_button:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(59, 130, 246, 0.08)) !important;
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  color: rgb(34, 197, 94) !important;
+  transform: translateY(-1px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.2), 0 0 0 1px rgba(34, 197, 94, 0.1) !important;
+}
+
+/* SELECTED DATE - STUNNING NEON GLOW */
+.custom-day-picker .rdp-selected .rdp-day_button {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.2)) !important;
+  color: rgb(34, 197, 94) !important;
+  border: 1px solid rgba(34, 197, 94, 0.6) !important;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  font-weight: 700 !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.custom-day-picker .rdp-selected .rdp-day_button:hover {
+  transform: translateY(-2px) scale(1.08) !important;
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.5), 0 0 60px rgba(34, 197, 94, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0.3)) !important;
+}
+
+/* TODAY - ELEGANT NEON GREEN INDICATOR */
+.custom-day-picker .rdp-today:not(.rdp-selected) .rdp-day_button {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(59, 130, 246, 0.05)) !important;
+  color: rgb(34, 197, 94) !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+.custom-day-picker .rdp-today:not(.rdp-selected) .rdp-day_button:hover {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.08)) !important;
+  border-color: rgba(34, 197, 94, 0.6) !important;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px) scale(1.05) !important;
+}
+
+/* DISABLED DATES */
+.custom-day-picker .rdp-disabled .rdp-day_button {
+  color: rgb(55, 65, 81) !important;
+  cursor: not-allowed !important;
+  opacity: 0.3 !important;
+}
+
+.custom-day-picker .rdp-disabled .rdp-day_button:hover {
+  background: transparent !important;
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* OUTSIDE DATES */
+.custom-day-picker .rdp-outside .rdp-day_button {
+  color: rgb(75, 85, 99) !important;
+  opacity: 0.5 !important;
+}
+
+/* FOCUS STYLES */
+.custom-day-picker .rdp-day_button:focus-visible {
+  outline: 2px solid rgba(34, 197, 94, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.custom-day-picker .rdp-button_previous:focus-visible,
+.custom-day-picker .rdp-button_next:focus-visible {
+  outline: 2px solid rgba(34, 197, 94, 0.5) !important;
+  outline-offset: 2px !important;
+}

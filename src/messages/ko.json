@@ -1,0 +1,147 @@
+{
+  "Common": {
+    "loading": "로딩 중...",
+    "error": "오류",
+    "success": "성공",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "back": "뒤로",
+    "next": "다음",
+    "continue": "계속",
+    "confirm": "확인",
+    "yes": "예",
+    "no": "아니오",
+    "close": "닫기",
+    "submit": "제출",
+    "retry": "다시 시도"
+  },
+  "Navigation": {
+    "home": "홈",
+    "about": "소개",
+    "faq": "FAQ",
+    "dashboard": "대시보드",
+    "login": "로그인",
+    "signup": "회원가입",
+    "logout": "로그아웃",
+    "profile": "프로필",
+    "settings": "설정",
+    "languageSwitch": "언어 변경"
+  },
+  "HomePage": {
+    "title": "I Bet You Can't - 심리학 기반 습관 형성",
+    "subtitle": "당신의 돈을 걸고 실천하는 유일한 습관 앱",
+    "description": "15달러를 걸고 매일 완주하거나 모든 걸 잃으세요. 손실 회피 심리학을 이용한 {successRate}% 성공률.",
+    "cta": "챌린지 시작하기",
+    "howItWorks": "작동 방식",
+    "testimonials": "성공 사례"
+  },
+  "Auth": {
+    "loginTitle": "돌아오신 것을 환영합니다",
+    "loginSubtitle": "습관 여정을 계속하려면 로그인하세요",
+    "signupTitle": "습관 형성 시작하기",
+    "signupSubtitle": "삶을 변화시킨 수천 명과 함께하세요",
+    "email": "이메일 주소",
+    "emailPlaceholder": "이메일을 입력하세요",
+    "password": "비밀번호",
+    "passwordPlaceholder": "비밀번호를 입력하세요",
+    "confirmPassword": "비밀번호 확인",
+    "confirmPasswordPlaceholder": "비밀번호를 다시 입력하세요",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "noAccount": "계정이 없으신가요?",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "signInWithGoogle": "Google로 로그인",
+    "signUpWithGoogle": "Google로 회원가입",
+    "or": "또는",
+    "terms": "회원가입을 통해 {termsLink} 및 {privacyLink}에 동의합니다",
+    "termsOfService": "이용약관",
+    "privacyPolicy": "개인정보처리방침"
+  },
+  "Challenge": {
+    "createTitle": "챌린지 만들기",
+    "createSubtitle": "금전적 투자로 목표를 현실로 만드세요",
+    "habitTitle": "어떤 습관을 형성하고 싶나요?",
+    "habitPlaceholder": "예: 30분 운동하기, 20분 독서하기, 명상하기",
+    "habitDescription": "매일 무엇을 할 것인지 구체적으로 적어주세요",
+    "durationTitle": "얼마나 오랫동안 실천하시겠습니까?",
+    "durationOptions": {
+      "7": "{count, plural, =1 {1주} other {#주}}",
+      "14": "{count, plural, =1 {2주} other {#주}}",
+      "21": "{count, plural, =1 {3주} other {#주}}",
+      "30": "{count, plural, =1 {1개월} other {#개월}}"
+    },
+    "stakeTitle": "얼마를 투자하시겠습니까?",
+    "stakeSubtitle": "당신의 다짐에 돈을 걸어보세요. 더 높은 투자 = 더 강한 동기부여.",
+    "stakeOptions": {
+      "15": {
+        "label": "₩20,000",
+        "subtitle": "기본 투자",
+        "motivation": "좋은 동기부여",
+        "completionRate": "72% 완료율"
+      },
+      "25": {
+        "label": "₩33,000", 
+        "subtitle": "높은 투자",
+        "motivation": "강한 동기부여",
+        "completionRate": "84% 완료율",
+        "popular": "인기"
+      },
+      "50": {
+        "label": "₩66,000",
+        "subtitle": "진지한 다짐", 
+        "motivation": "최대 동기부여",
+        "completionRate": "91% 완료율"
+      }
+    },
+    "whyStakesWork": "투자가 효과적인 이유",
+    "stakesExplanation": "손실 회피는 강력합니다. 사람들은 돈을 얻는 것보다 잃는 것을 피하는 데 2배 더 동기부여됩니다. 투자는 동기가 사라질 때 계속 이어갈 수 있게 하는 진짜 결과를 만듭니다.",
+    "moneyBackGuarantee": "100% 환불 보장",
+    "guaranteeText": "모든 {days, plural, =1 {1일} other {#일}}을 완주하면 전액 {amount, number, currency}을 돌려받습니다. 안전한 에스크로로 돈을 보관하며, 성공하면 돌려받고 하루라도 놓치면 잃게 됩니다.",
+    "reviewTitle": "챌린지 검토",
+    "summaryText": "\"{title}\"을(를) {duration, plural, =1 {1일} other {#일}} 동안 실천하며 {amount, number, currency}을 투자하겠습니다.",
+    "startChallenge": "챌린지 시작",
+    "paymentProcessing": "결제 처리 중..."
+  },
+  "Dashboard": {
+    "welcome": "다시 오신 것을 환영합니다, {name}님!",
+    "activeChallenge": "진행 중인 챌린지",
+    "completedDays": "{total}일 중 {completed}일 완료",
+    "daysRemaining": "{count, plural, =0 {챌린지 완료!} =1 {1일 남음} other {#일 남음}}",
+    "checkInToday": "오늘 체크인",
+    "checkInSuccess": "잘하셨습니다! 오늘의 습관을 완료했습니다.",
+    "missedDay": "하루를 놓쳤습니다. 챌린지 실패.",
+    "challengeComplete": "챌린지를 성공적으로 완료했습니다!",
+    "refundProcessed": "{amount, number, currency} 환불이 처리되었습니다.",
+    "createNewChallenge": "새 챌린지 만들기",
+    "challengeHistory": "챌린지 기록",
+    "stats": {
+      "totalChallenges": "총 챌린지",
+      "successRate": "성공률", 
+      "totalSaved": "총 절약액",
+      "currentStreak": "현재 연속 기록"
+    }
+  },
+  "Errors": {
+    "invalidEmail": "유효한 이메일 주소를 입력해주세요",
+    "passwordTooShort": "비밀번호는 최소 8자 이상이어야 합니다",
+    "passwordMismatch": "비밀번호가 일치하지 않습니다",
+    "loginFailed": "이메일 또는 비밀번호가 올바르지 않습니다",
+    "signupFailed": "계정 생성에 실패했습니다. 다시 시도해주세요.",
+    "paymentFailed": "결제에 실패했습니다. 카드 정보를 확인해주세요.",
+    "networkError": "네트워크 오류입니다. 연결을 확인해주세요.",
+    "genericError": "문제가 발생했습니다. 다시 시도해주세요.",
+    "habitRequired": "습관 설명을 입력해주세요",
+    "stakeRequired": "투자 금액을 선택해주세요",
+    "challengeCreateFailed": "챌린지 생성에 실패했습니다. 다시 시도해주세요."
+  },
+  "Time": {
+    "today": "오늘",
+    "yesterday": "어제",
+    "tomorrow": "내일",
+    "daysAgo": "{count, plural, =1 {1일 전} other {#일 전}}",
+    "hoursAgo": "{count, plural, =1 {1시간 전} other {#시간 전}}",
+    "minutesAgo": "{count, plural, =1 {1분 전} other {#분 전}}",
+    "justNow": "방금 전"
+  }
+}

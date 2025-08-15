@@ -36,6 +36,32 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'User not authenticated' }, { status: 401 })
     }
 
+    // Ensure user has a profile (create if missing)
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', user.id)
+      .single()
+
+    if (profileError && profileError.code === 'PGRST116') {
+      // Profile doesn't exist, create it
+      const { error: createProfileError } = await supabase
+        .from('profiles')
+        .insert({
+          id: user.id,
+          email: user.email || '',
+          full_name: user.user_metadata?.full_name || ''
+        })
+
+      if (createProfileError) {
+        console.error('Error creating profile:', createProfileError)
+        return NextResponse.json({ error: 'Failed to create user profile' }, { status: 500 })
+      }
+    } else if (profileError) {
+      console.error('Error checking profile:', profileError)
+      return NextResponse.json({ error: 'Failed to verify user profile' }, { status: 500 })
+    }
+
     const { data: challenges, error } = await supabase
       .from('challenges')
       .select(`
@@ -111,6 +137,32 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'User not authenticated' }, { status: 401 })
     }
 
+    // Ensure user has a profile (create if missing)
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', user.id)
+      .single()
+
+    if (profileError && profileError.code === 'PGRST116') {
+      // Profile doesn't exist, create it
+      const { error: createProfileError } = await supabase
+        .from('profiles')
+        .insert({
+          id: user.id,
+          email: user.email || '',
+          full_name: user.user_metadata?.full_name || ''
+        })
+
+      if (createProfileError) {
+        console.error('Error creating profile:', createProfileError)
+        return NextResponse.json({ error: 'Failed to create user profile' }, { status: 500 })
+      }
+    } else if (profileError) {
+      console.error('Error checking profile:', profileError)
+      return NextResponse.json({ error: 'Failed to verify user profile' }, { status: 500 })
+    }
+
     const body = await request.json()
     
     // Validate request body
@@ -127,13 +179,23 @@ export async function POST(request: NextRequest) {
     // Check if user already has an active challenge (MVP constraint)
     const { data: existingChallenges, error: checkError } = await supabase
       .from('challenges')
-      .select('id')
+      .select('id, status')
       .eq('user_id', user.id)
       .in('status', ['pending', 'active'])
 
     if (checkError) {
-      console.error('Error checking existing challenges:', checkError)
-      return NextResponse.json({ error: 'Failed to check existing challenges' }, { status: 500 })
+      console.error('Error checking existing challenges:', {
+        error: checkError,
+        code: checkError.code,
+        message: checkError.message,
+        details: checkError.details,
+        hint: checkError.hint,
+        userId: user.id
+      })
+      return NextResponse.json({ 
+        error: 'Failed to check existing challenges',
+        debug: process.env.NODE_ENV === 'development' ? checkError.message : undefined
+      }, { status: 500 })
     }
 
     if (existingChallenges && existingChallenges.length > 0) {

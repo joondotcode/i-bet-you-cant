@@ -8,9 +8,8 @@ import { StatsGrid } from '@/components/dashboard/stats-grid'
 import { ChallengeHistory } from '@/components/dashboard/challenge-history'
 import { DailyCheckIn } from '@/components/dashboard/daily-checkin'
 import { useChallengeStore, useCurrentChallenge, useChallenges, useChallengeLoading, useChallengeError } from '@/lib/stores/challenge-store'
+import { Target, Zap, Trophy, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
-import { TaskForm } from '@/components/tasks/task-form'
-import { TaskList } from '@/components/tasks/task-list'
 
 interface DashboardClientProps {
   user: any
@@ -45,35 +44,66 @@ export function DashboardClient({ user, profile }: DashboardClientProps) {
   const completedChallenges = challenges.filter(c => c.status === 'completed' || c.status === 'failed')
 
   return (
-    <div>
-      {/* Welcome Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">
-          Dashboard
-        </h1>
-        <p className="text-gray-600 dark:text-gray-400">
-          Welcome back{profile?.full_name ? `, ${profile.full_name}` : ''}. Track your progress and stay committed!
-        </p>
+    <div className="min-h-screen amy-radial-glow amy-dot-pattern">
+      {/* AMY'S MISSION CONTROL HERO HEADER */}
+      <div className="relative py-12 mb-8">
+        <div className="text-center space-y-6">
+          <div className="relative">
+            <div className="w-20 h-20 amy-glass-neon rounded-full flex items-center justify-center mx-auto mb-6 amy-interactive">
+              <Target className="w-10 h-10 text-neon-green drop-shadow-lg" />
+            </div>
+            <div className="absolute -inset-4 amy-glass rounded-full opacity-20 blur-xl"></div>
+          </div>
+          
+          <div className="space-y-4">
+            <h1 className="text-5xl font-bold text-foreground leading-tight">
+              Mission Control
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Welcome back{profile?.full_name ? `, ${profile.full_name}` : ''}. Your commitment journey continues here.
+            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 amy-glass rounded-full">
+              <div className="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+              <span className="text-sm text-neon-green font-medium">System Active</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Error Display */}
+      {/* AMY'S ERROR DISPLAY */}
       {error && (
-        <div className="mb-6 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
-          <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
+        <div className="mb-8 max-w-4xl mx-auto">
+          <div className="amy-glass border border-red-400/30 rounded-xl p-6">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-red-400/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-red-400 text-2xl">⚠️</span>
+              </div>
+              <div className="space-y-2">
+                <h4 className="text-xl font-bold text-red-400">System Alert</h4>
+                <p className="text-muted-foreground leading-relaxed">{error}</p>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
-      {/* Loading State */}
+      {/* AMY'S LOADING STATE */}
       {isLoading && (
-        <div className="mb-6 flex items-center justify-center py-8">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-          <span className="ml-3 text-muted-foreground">Loading your challenges...</span>
+        <div className="mb-8 max-w-4xl mx-auto">
+          <div className="amy-glass-neon rounded-xl p-8 text-center">
+            <div className="w-16 h-16 amy-glass rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-neon-green"></div>
+            </div>
+            <span className="text-neon-green font-medium">Loading mission data...</span>
+          </div>
         </div>
       )}
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-        {/* Main Content */}
-        <div className="xl:col-span-2 space-y-8">
+      {/* AMY'S PREMIUM CONTAINER */}
+      <div className="max-w-7xl mx-auto px-6 pb-12">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="xl:col-span-2 space-y-8">
           {/* Daily Check-in Card */}
           {currentChallenge && currentChallenge.status === 'active' && (
             <DailyCheckIn
@@ -103,27 +133,36 @@ export function DashboardClient({ user, profile }: DashboardClientProps) {
               status: currentChallenge.status
             }} />
           ) : (
-            <Card variant="elevated">
-              <CardContent className="text-center py-12">
-                <div className="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 003.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
+            <div className="amy-glass-neon rounded-2xl p-12 text-center">
+              <div className="relative mb-8">
+                <div className="w-24 h-24 amy-glass-neon rounded-full flex items-center justify-center mx-auto amy-interactive">
+                  <Trophy className="w-12 h-12 text-neon-green drop-shadow-lg" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  Ready for a Challenge?
+                <div className="absolute -inset-4 amy-glass rounded-full opacity-20 blur-xl"></div>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-3xl font-bold text-foreground">
+                  Ready for Battle?
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
-                  Create your first challenge and put your commitment to the test. 
-                  Remember: $15 on the line, complete every day or lose it all!
+                <p className="text-lg text-muted-foreground max-w-lg mx-auto leading-relaxed">
+                  Deploy your first challenge and prove your commitment. 
+                  <span className="text-neon-green font-semibold">$15 stakes, zero tolerance</span> – complete every day or lose it all.
                 </p>
-                <Button asChild variant="challenge" size="lg">
+                
+                <div className="pt-4">
                   <Link href="/dashboard/challenges/new">
-                    Create Your First Challenge
+                    <button className="px-8 py-4 amy-glass-neon text-neon-green hover:amy-glass-hover rounded-xl font-bold text-lg transition-all duration-300 amy-interactive">
+                      <span className="flex items-center justify-center gap-3">
+                        <Zap className="w-6 h-6" />
+                        Deploy First Mission
+                        <TrendingUp className="w-5 h-5" />
+                      </span>
+                    </button>
                   </Link>
-                </Button>
-              </CardContent>
-            </Card>
+                </div>
+              </div>
+            </div>
           )}
 
           {/* Challenge History */}
@@ -138,58 +177,67 @@ export function DashboardClient({ user, profile }: DashboardClientProps) {
             completedAt: c.updated_at,
             earnings: c.status === 'completed' ? c.stake_amount : 0
           }))} />
-
-          {/* Tasks */}
-          <TaskForm />
-          <TaskList />
         </div>
 
-        {/* Sidebar */}
-        <div className="space-y-6">
-          {/* Stats Grid */}
-          <StatsGrid stats={stats} />
+          {/* AMY'S COMMAND CENTER SIDEBAR */}
+          <div className="space-y-8">
+            {/* Stats Grid */}
+            <StatsGrid stats={stats} />
 
-          {/* Motivation Card */}
-          <Card variant="elevated" className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-950 border-blue-200 dark:border-blue-800">
-            <CardHeader>
-              <CardTitle className="text-blue-900 dark:text-blue-100">
-                💡 Daily Motivation
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <blockquote className="text-sm text-blue-800 dark:text-blue-200 italic">
+            {/* AMY'S MOTIVATION MODULE */}
+            <div className="amy-glass-neon rounded-2xl p-6 border border-neon-blue/30">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 amy-glass rounded-full flex items-center justify-center">
+                  <span className="text-2xl">💡</span>
+                </div>
+                <h3 className="text-xl font-bold text-neon-blue">
+                  Command Wisdom
+                </h3>
+              </div>
+              
+              <blockquote className="text-sm text-muted-foreground italic leading-relaxed mb-3">
                 "The difference between who you are and who you want to be is what you do."
               </blockquote>
-              <p className="text-xs text-blue-600 dark:text-blue-400 mt-2">— Anonymous</p>
-            </CardContent>
-          </Card>
+              <p className="text-xs text-neon-blue font-medium">— Mission Protocol</p>
+            </div>
 
-          {/* Tips Card */}
-          <Card variant="outlined">
-            <CardHeader>
-              <CardTitle className="text-sm">Success Tips</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-green-500 mt-1">✓</span>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Set reminders for your check-ins
-                </p>
+            {/* AMY'S SUCCESS PROTOCOLS */}
+            <div className="amy-glass rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
+                <Target className="w-5 h-5 text-neon-green" />
+                Success Protocols
+              </h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 bg-neon-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-neon-green text-sm font-bold">✓</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Deploy reminders for daily operations
+                  </p>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 bg-neon-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-neon-green text-sm font-bold">✓</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Initiate with 7-day missions for optimal success rate
+                  </p>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-6 h-6 bg-neon-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-neon-green text-sm font-bold">✓</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Define specific, measurable objectives
+                  </p>
+                </div>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-green-500 mt-1">✓</span>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Start with shorter challenges (7 days)
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-green-500 mt-1">✓</span>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Make your habit specific and measurable
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
